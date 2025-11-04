@@ -1,0 +1,250 @@
+[gd_scene load_steps=25 format=3 uid="uid://vpkbs6p2af2d"]
+
+[ext_resource type="Theme" uid="uid://bxd6m3mohkg63" path="res://assets/Themes/pantalla_inicio_theme.tres" id="1_2io84"]
+[ext_resource type="StyleBox" uid="uid://hmc3n3y00qvr" path="res://assets/Themes/pantalla_inicio_theme_secundario.tres" id="2_b2tbl"]
+[ext_resource type="Theme" uid="uid://cj5qccocrtj8a" path="res://assets/Themes/cute_buttons.tres" id="3_16es2"]
+[ext_resource type="Texture2D" uid="uid://bb1x1rm1hw8ch" path="res://cog.png" id="3_b2tbl"]
+[ext_resource type="Texture2D" uid="uid://c5o1ahey18kh2" path="res://assets/Texturas/Backward.png" id="3_gfig6"]
+[ext_resource type="Texture2D" uid="uid://d3cb5kqdrvdrq" path="res://assets/Texturas/BackwardActive.png" id="4_bg0o8"]
+[ext_resource type="Texture2D" uid="uid://b15nn3bgixnvu" path="res://assets/Texturas/Play.png" id="5_tamln"]
+[ext_resource type="Texture2D" uid="uid://sjjjospytycb" path="res://assets/Texturas/Pause.png" id="6_kgt6x"]
+[ext_resource type="Texture2D" uid="uid://dqnlyjhksteuv" path="res://assets/Texturas/Foward.png" id="7_j5sab"]
+[ext_resource type="Texture2D" uid="uid://bxdg0oci0ujmy" path="res://assets/Texturas/FowardActive.png" id="8_2kcan"]
+[ext_resource type="Texture2D" uid="uid://bvgndkoo5dkj1" path="res://assets/Texturas/Cut.png" id="9_2kcan"]
+[ext_resource type="Texture2D" uid="uid://byb4e0i10v306" path="res://assets/Texturas/CutActive.png" id="10_o5xnn"]
+[ext_resource type="Texture2D" uid="uid://d4lh3q4q2u3do" path="res://assets/Texturas/Bookmark.png" id="11_gf8og"]
+[ext_resource type="Texture2D" uid="uid://dq4gqyuxi4u0s" path="res://assets/Texturas/BookmarkActive.png" id="12_x81k1"]
+[ext_resource type="Texture2D" uid="uid://dveenlmcd00ds" path="res://assets/Texturas/flechaVelocidad.png" id="13_i1q0r"]
+[ext_resource type="Texture2D" uid="uid://cctbetodqq43c" path="res://assets/Texturas/flechaVelocidadActive.png" id="14_m2d3p"]
+[ext_resource type="Texture2D" uid="uid://bykviaoher17u" path="res://assets/Texturas/Loop.png" id="17_drjey"]
+[ext_resource type="Texture2D" uid="uid://bt86uoqk2tty8" path="res://assets/Texturas/LoopActive.png" id="18_vc7ec"]
+[ext_resource type="Texture2D" uid="uid://c24huuuh4ykuy" path="res://assets/Texturas/Record.png" id="19_2kdof"]
+[ext_resource type="Texture2D" uid="uid://cpu8c52eenlp" path="res://assets/Texturas/Effects.png" id="20_drjey"]
+[ext_resource type="Texture2D" uid="uid://c7f20vhqejiof" path="res://assets/Texturas/RecordActive.png" id="20_hgwna"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5alke"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_o8uhu"]
+HBoxContainer/styles/bg = SubResource("StyleBoxFlat_5alke")
+
+[sub_resource type="AudioStreamMP3" id="AudioStreamMP3_o5xnn"]
+
+[node name="Editor" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Bg" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_2io84")
+
+[node name="VBgContainer" type="VBoxContainer" parent="Bg"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HControlsContainer" type="HBoxContainer" parent="Bg/VBgContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BgControlButtons" type="Panel" parent="Bg/VBgContainer/HControlsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_2io84")
+theme_override_styles/panel = ExtResource("2_b2tbl")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Bg/VBgContainer/HControlsContainer/BgControlButtons"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_o8uhu")
+metadata/_edit_use_anchors_ = true
+
+[node name="BackBtn" type="TextureButton" parent="Bg/VBgContainer/HControlsContainer/BgControlButtons/HBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+toggle_mode = true
+texture_normal = ExtResource("3_gfig6")
+texture_pressed = ExtResource("4_bg0o8")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="PausePlayBtn" type="TextureButton" parent="Bg/VBgContainer/HControlsContainer/BgControlButtons/HBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+toggle_mode = true
+texture_normal = ExtResource("5_tamln")
+texture_pressed = ExtResource("6_kgt6x")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="FowardBtn" type="TextureButton" parent="Bg/VBgContainer/HControlsContainer/BgControlButtons/HBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+toggle_mode = true
+texture_normal = ExtResource("7_j5sab")
+texture_pressed = ExtResource("8_2kcan")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Cut" type="TextureButton" parent="Bg/VBgContainer/HControlsContainer/BgControlButtons/HBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+toggle_mode = true
+texture_normal = ExtResource("9_2kcan")
+texture_pressed = ExtResource("10_o5xnn")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Bookmark" type="TextureButton" parent="Bg/VBgContainer/HControlsContainer/BgControlButtons/HBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+toggle_mode = true
+texture_normal = ExtResource("11_gf8og")
+texture_pressed = ExtResource("12_x81k1")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="VelControls" type="HBoxContainer" parent="Bg/VBgContainer/HControlsContainer/BgControlButtons/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LineEdit" type="LineEdit" parent="Bg/VBgContainer/HControlsContainer/BgControlButtons/HBoxContainer/VelControls"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 16.0
+placeholder_text = "Velocidad"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Bg/VBgContainer/HControlsContainer/BgControlButtons/HBoxContainer/VelControls"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="UpVelBtn" type="TextureButton" parent="Bg/VBgContainer/HControlsContainer/BgControlButtons/HBoxContainer/VelControls/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("13_i1q0r")
+texture_pressed = ExtResource("14_m2d3p")
+stretch_mode = 5
+flip_v = true
+
+[node name="DwnVelBtn" type="TextureButton" parent="Bg/VBgContainer/HControlsContainer/BgControlButtons/HBoxContainer/VelControls/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("13_i1q0r")
+texture_pressed = ExtResource("14_m2d3p")
+stretch_mode = 5
+
+[node name="Tracks" type="HBoxContainer" parent="Bg/VBgContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 20.0
+
+[node name="TrackControls" type="Panel" parent="Bg/VBgContainer/Tracks"]
+custom_minimum_size = Vector2(0, 140)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme = ExtResource("1_2io84")
+theme_override_styles/panel = ExtResource("2_b2tbl")
+
+[node name="PropertyList" type="VBoxContainer" parent="Bg/VBgContainer/Tracks/TrackControls"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Bg/VBgContainer/Tracks/TrackControls/PropertyList"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="Bg/VBgContainer/Tracks/TrackControls/PropertyList/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("3_b2tbl")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="NameTxt" type="LineEdit" parent="Bg/VBgContainer/Tracks/TrackControls/PropertyList/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 8.0
+placeholder_text = "Nombre de pista"
+
+[node name="AlwaysShownControls" type="HBoxContainer" parent="Bg/VBgContainer/Tracks/TrackControls/PropertyList"]
+layout_mode = 2
+
+[node name="LoopBtn" type="TextureButton" parent="Bg/VBgContainer/Tracks/TrackControls/PropertyList/AlwaysShownControls"]
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("17_drjey")
+texture_pressed = ExtResource("18_vc7ec")
+
+[node name="RecordBtn" type="TextureButton" parent="Bg/VBgContainer/Tracks/TrackControls/PropertyList/AlwaysShownControls"]
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("19_2kdof")
+texture_pressed = ExtResource("20_hgwna")
+
+[node name="LoopBtn2" type="TextureButton" parent="Bg/VBgContainer/Tracks/TrackControls/PropertyList/AlwaysShownControls"]
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("20_drjey")
+
+[node name="DeleteBtn" type="Button" parent="Bg/VBgContainer/Tracks/TrackControls/PropertyList"]
+layout_mode = 2
+theme = ExtResource("3_16es2")
+keep_pressed_outside = true
+text = "Eliminar"
+text_overrun_behavior = 2
+autowrap_mode = 3
+
+[node name="BoxContainer" type="BoxContainer" parent="Bg/VBgContainer/Tracks/TrackControls/PropertyList"]
+layout_mode = 2
+
+[node name="TrackVisuals" type="Panel" parent="Bg/VBgContainer/Tracks"]
+custom_minimum_size = Vector2(0, 140)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+size_flags_stretch_ratio = 4.0
+theme = ExtResource("1_2io84")
+theme_override_styles/panel = ExtResource("2_b2tbl")
+
+[node name="PropertyList" type="VBoxContainer" parent="Bg/VBgContainer/Tracks/TrackVisuals"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Bg/VBgContainer/Tracks/TrackVisuals/PropertyList"]
+stream = SubResource("AudioStreamMP3_o5xnn")

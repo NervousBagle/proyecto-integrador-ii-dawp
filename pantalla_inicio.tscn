@@ -1,0 +1,150 @@
+[gd_scene load_steps=6 format=3 uid="uid://bl7mlw8t6jn25"]
+
+[ext_resource type="Theme" uid="uid://bxd6m3mohkg63" path="res://assets/Themes/pantalla_inicio_theme.tres" id="1_70vh5"]
+[ext_resource type="StyleBox" uid="uid://hmc3n3y00qvr" path="res://assets/Themes/pantalla_inicio_theme_secundario.tres" id="2_5alke"]
+[ext_resource type="Theme" uid="uid://cj5qccocrtj8a" path="res://assets/Themes/cute_buttons.tres" id="3_s0td0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5alke"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_s0td0"]
+HBoxContainer/styles/bg = SubResource("StyleBoxFlat_5alke")
+
+[node name="Inicio" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Bg" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_70vh5")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBgContainer" type="VBoxContainer" parent="Bg"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HControlsContainer" type="HBoxContainer" parent="Bg/VBgContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BgControlButtons" type="Panel" parent="Bg/VBgContainer/HControlsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_70vh5")
+theme_override_styles/panel = ExtResource("2_5alke")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Bg/VBgContainer/HControlsContainer/BgControlButtons"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_s0td0")
+
+[node name="CreateBtn" type="Button" parent="Bg/VBgContainer/HControlsContainer/BgControlButtons/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Crear"
+
+[node name="ScanBtn" type="Button" parent="Bg/VBgContainer/HControlsContainer/BgControlButtons/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Escanear"
+
+[node name="LineEdit" type="LineEdit" parent="Bg/VBgContainer/HControlsContainer/BgControlButtons/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 6.08
+placeholder_text = "Buscar"
+
+[node name="HBgContainer" type="HBoxContainer" parent="Bg/VBgContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 20.0
+
+[node name="BgMainButtons" type="Panel" parent="Bg/VBgContainer/HBgContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_70vh5")
+theme_override_styles/panel = ExtResource("2_5alke")
+
+[node name="ButtonList" type="VBoxContainer" parent="Bg/VBgContainer/HBgContainer/BgMainButtons"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="EditBtn" type="Button" parent="Bg/VBgContainer/HBgContainer/BgMainButtons/ButtonList"]
+layout_mode = 2
+theme = ExtResource("3_s0td0")
+keep_pressed_outside = true
+text = "Editar"
+text_overrun_behavior = 2
+autowrap_mode = 3
+
+[node name="OpenBtn" type="Button" parent="Bg/VBgContainer/HBgContainer/BgMainButtons/ButtonList"]
+layout_mode = 2
+theme = ExtResource("3_s0td0")
+keep_pressed_outside = true
+text = "Abrir"
+text_overrun_behavior = 2
+autowrap_mode = 3
+
+[node name="RnmeBtn" type="Button" parent="Bg/VBgContainer/HBgContainer/BgMainButtons/ButtonList"]
+layout_mode = 2
+theme = ExtResource("3_s0td0")
+keep_pressed_outside = true
+text = "Renombrar"
+text_overrun_behavior = 2
+autowrap_mode = 3
+
+[node name="DupeBtn" type="Button" parent="Bg/VBgContainer/HBgContainer/BgMainButtons/ButtonList"]
+layout_mode = 2
+theme = ExtResource("3_s0td0")
+keep_pressed_outside = true
+text = "Duplicar"
+text_overrun_behavior = 2
+autowrap_mode = 3
+
+[node name="DelBtn" type="Button" parent="Bg/VBgContainer/HBgContainer/BgMainButtons/ButtonList"]
+layout_mode = 2
+theme = ExtResource("3_s0td0")
+keep_pressed_outside = true
+text = "Eliminar"
+text_overrun_behavior = 2
+autowrap_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Bg/VBgContainer/HBgContainer/BgMainButtons/ButtonList"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 2
+
+[node name="BgList" type="ScrollContainer" parent="Bg/VBgContainer/HBgContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="ScrollList" type="VBoxContainer" parent="Bg/VBgContainer/HBgContainer/BgList"]
+layout_mode = 2
+size_flags_horizontal = 3

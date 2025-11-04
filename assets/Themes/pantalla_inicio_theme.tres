@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bxd6m3mohkg63"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ymoup"]
+bg_color = Color(0.45913923, 0.48000145, 0.6045298, 1)
+border_color = Color(0.36242747, 0.33385882, 0.3619502, 1)
+
+[resource]
+Panel/styles/panel = SubResource("StyleBoxFlat_ymoup")
