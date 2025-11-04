@@ -1,9 +1,8 @@
-[gd_scene load_steps=25 format=3 uid="uid://vpkbs6p2af2d"]
+[gd_scene load_steps=26 format=3 uid="uid://vpkbs6p2af2d"]
 
 [ext_resource type="Theme" uid="uid://bxd6m3mohkg63" path="res://assets/Themes/pantalla_inicio_theme.tres" id="1_2io84"]
 [ext_resource type="StyleBox" uid="uid://hmc3n3y00qvr" path="res://assets/Themes/pantalla_inicio_theme_secundario.tres" id="2_b2tbl"]
 [ext_resource type="Theme" uid="uid://cj5qccocrtj8a" path="res://assets/Themes/cute_buttons.tres" id="3_16es2"]
-[ext_resource type="Texture2D" uid="uid://bb1x1rm1hw8ch" path="res://cog.png" id="3_b2tbl"]
 [ext_resource type="Texture2D" uid="uid://c5o1ahey18kh2" path="res://assets/Texturas/Backward.png" id="3_gfig6"]
 [ext_resource type="Texture2D" uid="uid://d3cb5kqdrvdrq" path="res://assets/Texturas/BackwardActive.png" id="4_bg0o8"]
 [ext_resource type="Texture2D" uid="uid://b15nn3bgixnvu" path="res://assets/Texturas/Play.png" id="5_tamln"]
@@ -16,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://dq4gqyuxi4u0s" path="res://assets/Texturas/BookmarkActive.png" id="12_x81k1"]
 [ext_resource type="Texture2D" uid="uid://dveenlmcd00ds" path="res://assets/Texturas/flechaVelocidad.png" id="13_i1q0r"]
 [ext_resource type="Texture2D" uid="uid://cctbetodqq43c" path="res://assets/Texturas/flechaVelocidadActive.png" id="14_m2d3p"]
+[ext_resource type="Texture2D" uid="uid://nle3igflykbp" path="res://assets/Texturas/ConfigCog.png" id="15_vc7ec"]
+[ext_resource type="Texture2D" uid="uid://xoltxr8lt17j" path="res://assets/Texturas/ConfigCogActive.png" id="16_2kdof"]
 [ext_resource type="Texture2D" uid="uid://bykviaoher17u" path="res://assets/Texturas/Loop.png" id="17_drjey"]
 [ext_resource type="Texture2D" uid="uid://bt86uoqk2tty8" path="res://assets/Texturas/LoopActive.png" id="18_vc7ec"]
 [ext_resource type="Texture2D" uid="uid://c24huuuh4ykuy" path="res://assets/Texturas/Record.png" id="19_2kdof"]
@@ -159,12 +160,17 @@ texture_normal = ExtResource("13_i1q0r")
 texture_pressed = ExtResource("14_m2d3p")
 stretch_mode = 5
 
-[node name="Tracks" type="HBoxContainer" parent="Bg/VBgContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Bg/VBgContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 20.0
 
-[node name="TrackControls" type="Panel" parent="Bg/VBgContainer/Tracks"]
+[node name="Track" type="HBoxContainer" parent="Bg/VBgContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 20.0
+
+[node name="TrackControls" type="Panel" parent="Bg/VBgContainer/VBoxContainer/Track"]
 custom_minimum_size = Vector2(0, 140)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -172,7 +178,7 @@ size_flags_vertical = 0
 theme = ExtResource("1_2io84")
 theme_override_styles/panel = ExtResource("2_b2tbl")
 
-[node name="PropertyList" type="VBoxContainer" parent="Bg/VBgContainer/Tracks/TrackControls"]
+[node name="PropertyList" type="VBoxContainer" parent="Bg/VBgContainer/VBoxContainer/Track/TrackControls"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -181,43 +187,45 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Bg/VBgContainer/Tracks/TrackControls/PropertyList"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Bg/VBgContainer/VBoxContainer/Track/TrackControls/PropertyList"]
 layout_mode = 2
 
-[node name="TextureButton" type="TextureButton" parent="Bg/VBgContainer/Tracks/TrackControls/PropertyList/HBoxContainer"]
+[node name="TextureButton" type="TextureButton" parent="Bg/VBgContainer/VBoxContainer/Track/TrackControls/PropertyList/HBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-texture_normal = ExtResource("3_b2tbl")
+texture_normal = ExtResource("15_vc7ec")
+texture_pressed = ExtResource("16_2kdof")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="NameTxt" type="LineEdit" parent="Bg/VBgContainer/Tracks/TrackControls/PropertyList/HBoxContainer"]
+[node name="NameTxt" type="LineEdit" parent="Bg/VBgContainer/VBoxContainer/Track/TrackControls/PropertyList/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 8.0
 placeholder_text = "Nombre de pista"
 
-[node name="AlwaysShownControls" type="HBoxContainer" parent="Bg/VBgContainer/Tracks/TrackControls/PropertyList"]
+[node name="AlwaysShownControls" type="HBoxContainer" parent="Bg/VBgContainer/VBoxContainer/Track/TrackControls/PropertyList"]
 layout_mode = 2
 
-[node name="LoopBtn" type="TextureButton" parent="Bg/VBgContainer/Tracks/TrackControls/PropertyList/AlwaysShownControls"]
+[node name="LoopBtn" type="TextureButton" parent="Bg/VBgContainer/VBoxContainer/Track/TrackControls/PropertyList/AlwaysShownControls"]
 layout_mode = 2
 toggle_mode = true
 texture_normal = ExtResource("17_drjey")
 texture_pressed = ExtResource("18_vc7ec")
 
-[node name="RecordBtn" type="TextureButton" parent="Bg/VBgContainer/Tracks/TrackControls/PropertyList/AlwaysShownControls"]
+[node name="RecordBtn" type="TextureButton" parent="Bg/VBgContainer/VBoxContainer/Track/TrackControls/PropertyList/AlwaysShownControls"]
 layout_mode = 2
 toggle_mode = true
 texture_normal = ExtResource("19_2kdof")
 texture_pressed = ExtResource("20_hgwna")
 
-[node name="LoopBtn2" type="TextureButton" parent="Bg/VBgContainer/Tracks/TrackControls/PropertyList/AlwaysShownControls"]
+[node name="LoopBtn2" type="TextureButton" parent="Bg/VBgContainer/VBoxContainer/Track/TrackControls/PropertyList/AlwaysShownControls"]
 layout_mode = 2
 toggle_mode = true
 texture_normal = ExtResource("20_drjey")
 
-[node name="DeleteBtn" type="Button" parent="Bg/VBgContainer/Tracks/TrackControls/PropertyList"]
+[node name="DeleteBtn" type="Button" parent="Bg/VBgContainer/VBoxContainer/Track/TrackControls/PropertyList"]
 layout_mode = 2
 theme = ExtResource("3_16es2")
 keep_pressed_outside = true
@@ -225,10 +233,10 @@ text = "Eliminar"
 text_overrun_behavior = 2
 autowrap_mode = 3
 
-[node name="BoxContainer" type="BoxContainer" parent="Bg/VBgContainer/Tracks/TrackControls/PropertyList"]
+[node name="BoxContainer" type="BoxContainer" parent="Bg/VBgContainer/VBoxContainer/Track/TrackControls/PropertyList"]
 layout_mode = 2
 
-[node name="TrackVisuals" type="Panel" parent="Bg/VBgContainer/Tracks"]
+[node name="TrackVisuals" type="Panel" parent="Bg/VBgContainer/VBoxContainer/Track"]
 custom_minimum_size = Vector2(0, 140)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -237,7 +245,7 @@ size_flags_stretch_ratio = 4.0
 theme = ExtResource("1_2io84")
 theme_override_styles/panel = ExtResource("2_b2tbl")
 
-[node name="PropertyList" type="VBoxContainer" parent="Bg/VBgContainer/Tracks/TrackVisuals"]
+[node name="PropertyList" type="VBoxContainer" parent="Bg/VBgContainer/VBoxContainer/Track/TrackVisuals"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -246,5 +254,5 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Bg/VBgContainer/Tracks/TrackVisuals/PropertyList"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Bg/VBgContainer/VBoxContainer/Track/TrackVisuals/PropertyList"]
 stream = SubResource("AudioStreamMP3_o5xnn")
